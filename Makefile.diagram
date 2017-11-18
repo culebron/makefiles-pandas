@@ -1,0 +1,16 @@
+
+city.osm.bz2: cities-list.csv
+	touch $@
+
+import-osm: city.osm.bz2 osm-tags.csv
+	touch $@
+
+houses.csv: cities-list.csv
+	touch $@
+
+houses-geocoded.csv: houses.csv
+	touch $@
+
+block-stats.csv: houses-geocoded.csv import-osm
+	touch $@
+
