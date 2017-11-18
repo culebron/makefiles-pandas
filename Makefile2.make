@@ -29,3 +29,6 @@ osm-import.touch: osm_downloaded.osm.bz2 importing.style
 
 osm-processed.touch: process-osm.sql osm-import.touch
 	$s $< $z
+
+diagram.png: Makefile
+	python makefile2dot.py < Makefile | dot -Tpng > diagram.png

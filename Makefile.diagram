@@ -14,3 +14,5 @@ houses-geocoded.csv: houses.csv
 block-stats.csv: houses-geocoded.csv import-osm
 	touch $@
 
+diagram.png: Makefile
+	python makefile2dot.py < Makefile | dot -Tpng > diagram.png
